@@ -803,7 +803,7 @@ function renderMgrReport(){
   const pct=g=>s.total?Math.round((s[g]||0)/s.total*100):0;
   const lbl={'today':'วันที่ '+todayStr(),'week':'สัปดาห์นี้','month':'เดือนนี้'}[mgrRPeriod];
   const tm={};recs.forEach(r=>{if(!tm[r.tailor])tm[r.tailor]={A:0,B:0,BB:0,C:0};tm[r.tailor][r.grade]=(tm[r.tailor][r.grade]||0)+r.qty;});
-  const lines=['=== รายงานผู้บริหาร — ฮันเฮง ===',lbl,'─────────────────────',
+  const lines=['=== รายงานส่งผู้บริหาร — ฮันเฮง ===',lbl,'─────────────────────',
     `รวมตรวจ: ${s.total} ชิ้น`,`A: ${s.A||0}(${pct('A')}%)  B: ${s.B||0}(${pct('B')}%)  BB: ${s.BB||0}(${pct('BB')}%)  C: ${s.C||0}(${pct('C')}%)`,
     '─────────────────────','ตามช่าง:'];
   Object.entries(tm).sort((a,b)=>(b[1].C||0)-(a[1].C||0)).forEach(([n,d])=>lines.push(`  ${n}: A=${d.A||0} B=${d.B||0} BB=${d.BB||0} C=${d.C||0}`));
